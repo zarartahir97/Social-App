@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "77e1a8d1-10a3-4a6e-9c37-2d2bb73b95fb",
-		"name": "social network - stripe",
+		"_postman_id": "ff262638-c4b3-42ad-b653-dd0ebe5fcc8a",
+		"name": "social network - moderators",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -40,7 +40,12 @@
 						},
 						{
 							"key": "type",
-							"value": "free",
+							"value": "paid",
+							"type": "text"
+						},
+						{
+							"key": "access",
+							"value": "moderator",
 							"type": "text"
 						}
 					]
@@ -165,14 +170,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/followers/7",
+					"raw": "localhost:8000/followers/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"followers",
-						"7"
+						"1"
 					],
 					"query": [
 						{
@@ -216,14 +221,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/followers/7",
+					"raw": "localhost:8000/followers/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"followers",
-						"7"
+						"1"
 					]
 				}
 			},

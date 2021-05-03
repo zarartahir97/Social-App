@@ -9,7 +9,8 @@ router.post('/', (req, res) => {
         password: req.body.password,
         address: req.body.address,
         phone: req.body.phone,
-        type: req.body.type  
+        type: req.body.type,
+        access: req.body.access  
     })
     .then(result => {
         console.log(result);

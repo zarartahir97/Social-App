@@ -32,6 +32,10 @@ const user = db.define('users', {
         type: Sequelize.ENUM('free', 'paid'),
         defaultValue: 'free'
     },
+    access: {
+        type: Sequelize.ENUM('user', 'moderator'),
+        defaultValue: 'user'
+    },
     createdAt: {
         type: Sequelize.DATE
     },

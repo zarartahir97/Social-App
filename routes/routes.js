@@ -40,6 +40,7 @@ router.get('/login', (req, res) => {
             session.setItem('token', token);
             session.setItem('name', result[0].name);
             session.setItem('type', result[0].type);
+            session.setItem('access', result[0].access);
         }
     })
     .catch(err => {
