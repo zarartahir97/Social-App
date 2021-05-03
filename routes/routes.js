@@ -3,6 +3,7 @@ const session = require('sessionstorage');
 const router = express.Router();
 const { Op } = require('sequelize');
 const jwt = require('jsonwebtoken');
+const stripe = require('stripe')(process.env.secretKey);
 const user = require('../models/users');
 const checkAuth = require('../middleware/check-auth');
 
@@ -38,6 +39,7 @@ router.get('/login', (req, res) => {
             });
             session.setItem('token', token);
             session.setItem('name', result[0].name);
+            session.setItem('type', result[0].type);
         }
     })
     .catch(err => {
@@ -49,7 +51,52 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/feed', checkAuth, (req, res) => {
+    if (session.getItem('type') == 'paid') {
         res.render('feed');
+    }
+    else {
+        res.send("You are a free user. Pay subscription fee to view social feed.")
+    }
+});
+
+router.get('/checkout', checkAuth, (req, res) => {
+    res.render('checkout', { publicKey: process.env.publicKey, userEmail: req.userData.email });
+});
+
+router.post('/payment', checkAuth, function(req, res){
+
+    stripe.customers.create({
+        email: req.body.stripeEmail,
+        source: req.body.stripeToken,
+        name: session.getItem('name')
+    })
+    .then((customer) => {
+        return stripe.charges.create({
+            amount: 2500,
+            description: 'Social Feed Subscription',
+            currency: 'USD',
+            customer: customer.id
+        });
+    })
+    .then(result => {
+        console.log(result);
+        user.update({ type: 'paid' }, {
+            where: {
+                id: req.userData.userID
+            }
+          });
+    })
+    .then(() => {
+        res.status(200).json({
+            message: "Subscription Fees Paid Successfully"
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        })
+    });
 });
 
 module.exports = router;

@@ -55,7 +55,7 @@ user.belongsToMany(user, {
 
 socket.on('connection', (socket) => {
     console.log("client connected!!");
-});
+})
 
 db.authenticate()
 .then(() => {

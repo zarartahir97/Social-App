@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d87310a7-e836-4e6b-b4f6-2a0fb7172471",
-		"name": "social network - social feed",
+		"_postman_id": "77e1a8d1-10a3-4a6e-9c37-2d2bb73b95fb",
+		"name": "social network - stripe",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -36,6 +36,11 @@
 						{
 							"key": "phone",
 							"value": "03344983151",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "free",
 							"type": "text"
 						}
 					]

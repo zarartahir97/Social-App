@@ -28,6 +28,10 @@ const user = db.define('users', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    type: {
+        type: Sequelize.ENUM('free', 'paid'),
+        defaultValue: 'free'
+    },
     createdAt: {
         type: Sequelize.DATE
     },

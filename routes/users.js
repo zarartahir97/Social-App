@@ -8,7 +8,8 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         address: req.body.address,
-        phone: req.body.phone,  
+        phone: req.body.phone,
+        type: req.body.type  
     })
     .then(result => {
         console.log(result);

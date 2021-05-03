@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkout</title>
+        <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    </head>
+
+    <body>
+        <h3>Welcome to Payment Gateway</h3>
+        <form action="payment" method="POST">
+           <script 
+              src="//checkout.stripe.com/v2/checkout.js"
+              class="stripe-button"
+              data-key="<%= publicKey %>"
+              data-amount="2500"
+              data-currency="USD"
+              data-name="Social Feed"
+              data-description="Subscription Charges for Social Feed"
+              data-email="<%= userEmail %>"
+              data-locale="auto" >
+            </script>
+        </form>
+    </body>
+
+</html>
