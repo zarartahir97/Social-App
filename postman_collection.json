@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "d87310a7-e836-4e6b-b4f6-2a0fb7172471",
+		"name": "social network - social feed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ADD USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Zarar Tahir",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zarartahir97@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "babi3151",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "308-F, Street 10, Statelife Housing Society, Lahore",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "03344983151",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER LOGIN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "zarartahir97@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "babi3151",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsImVtYWlsIjoiZG9kaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6Ijg1OTA3MCIsImlhdCI6MTYxOTg5NTI4NiwiZXhwIjoxNjE5ODk4ODg2fQ.mef71DA9ELfQSgm3xAAH6xpFfRvY5Qqqn-6D11ccizw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "IPHONE 12",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Brand new iphone 12 now available at cheap price.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FOLLOWERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/followers",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FOLLOW USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsImVtYWlsIjoiemFyYXJ0YWhpcjk3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYmFiaTMxNTEiLCJpYXQiOjE2MTg5NDM0MzMsImV4cCI6MTYxODk0NzAzM30.P8k2YtQ1WEh0q4m-uqrfhyigLUT7zOmldrAUnbecuR0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/followers/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"followers",
+						"7"
+					],
+					"query": [
+						{
+							"key": "userID",
+							"value": "7",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET POSTS IN FEED",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjcsImVtYWlsIjoiZG9kaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6Ijg1OTA3MCIsImlhdCI6MTYxOTkwMjc2MiwiZXhwIjoxNjE5OTA2MzYyfQ.KIljiuRIQOIESsQgWHIGYaGxQaDao1YKB3f1zkP0cIQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UNFOLLOW USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/followers/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"followers",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
